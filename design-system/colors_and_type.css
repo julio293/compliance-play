@@ -1,0 +1,190 @@
+/* ════════════════════════════════════════════════════════════════════════
+   MaV / Fyscal Design System — colors_and_type.css
+   ────────────────────────────────────────────────────────────────────────
+   Local copy pulled 2026-11-11 from Claude Design project
+   "Fyscal New Design Guidelines 2026" (37aae0db-ffbf-47f5-bd76-8eca8468bd77).
+   SOURCE OF TRUTH for Play UI. Do not edit here — change upstream, re-pull.
+
+   The curated, practical entry point for building MaV-branded designs.
+   Themes: add data-theme="dark" on <html>.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* Fixed monospace face — delivered via Google Fonts CDN. */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ── BRAND TYPEFACE — FT Sans (Fyscal Tech), self-hosted ──────────────────
+   Ships Light/Regular/Medium/SemiBold (300–600). 600 is the heaviest cut, so
+   requests for 700/800 are mapped to the SemiBold file (rendered at its true
+   weight — no faux-bold). */
+@font-face {
+  font-family: 'FT Sans';
+  src: url('fonts/FTSans-Light.otf') format('opentype');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FT Sans';
+  src: url('fonts/FTSans-Regular.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FT Sans';
+  src: url('fonts/FTSans-Medium.otf') format('opentype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FT Sans';
+  src: url('fonts/FTSans-Semi_Bold.otf') format('opentype');
+  font-weight: 600 800; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ── BRAND ───────────────────────────────────────────────────────────── */
+  --primary:        #352eff;   /* electric blue — primary actions, brand */
+  --primary-dark:   #ff00ff;   /* magenta — dark-mode primary */
+  --secondary:      #0053ff;   /* royal blue — gradients, secondary */
+  --tertiary-1:     #7c9dff;   /* periwinkle — hover, soft accents */
+  --tertiary-2:     #030192;   /* deep indigo — pressed / clicked */
+  --primary-soft:   #352eff1a; /* 10% blue — soft fills, alert bg */
+
+  /* ── NEUTRALS (light mode) — Fyscal black is #171717, never pure #000. */
+  --fg:             #171717;   /* primary text / ink */
+  --fg-muted:       #7f7f7f;   /* descriptions, secondary text (mono500) */
+  --fg-placeholder: #b2b2b2;   /* placeholder, subtle icon (mono300) */
+  --fg-disabled:    #cccccc;   /* disabled text (mono200) */
+
+  --bg:             #ffffff;   /* default surface / page */
+  --bg-secondary:   #e5e5e5;   /* recessed surface (mono100) */
+  --bg-tertiary:    #e6edff;   /* tinted blue surface — swipeup, hints */
+  --surface:        #ffffff;   /* card surface */
+  --ink:            #171717;   /* always-dark surface (toast, footer, dark btn) — does NOT invert */
+  --surface-soft:   #f8f8f8;   /* softer near-white panel */
+  --surface-ios:    #f2f2f7;   /* iOS system background tint */
+
+  --border:         #efefef;   /* default hairline / divider */
+  --border-strong:  #171717;   /* high-contrast border (ink) */
+  --border-input:   #cccccc;   /* input outline default */
+
+  /* Mono scale — full ramp for charts, skeletons, depth */
+  --mono-100: #e5e5e5;  --mono-200: #cccccc;  --mono-300: #b2b2b2;
+  --mono-400: #999999;  --mono-500: #7f7f7f;  --mono-600: #666666;
+  --mono-700: #4c4c4c;  --mono-800: #333333;  --mono-900: #191919;
+
+  /* ── SYSTEM / SEMANTIC — success is the muted olive used in gain/loss. */
+  --success:        #629c28;   --success-soft: #629c281a;
+  --danger:         #ff0000;   --danger-soft:  #ff00001a;   --danger-dark: #e93a2a;
+  --warning:        #ff8400;   --warning-soft: #ff84001a;
+  --info:           #144cc7;
+  --natural:        #d9d9d9;   /* neutral chart line / track */
+
+  /* ── CODE / FIXED ──────────────────────────────────────────────────────*/
+  --code-bg:        #0d0d0d;
+  --focus-ring:     rgba(53,46,255,0.4);
+
+  /* ── TYPOGRAPHY — families ─────────────────────────────────────────────*/
+  --font-ft:      'FT Sans', sans-serif;
+  --font-active:  'FT Sans', sans-serif;
+  --font-display: var(--font-active);
+  --font-body:    var(--font-active);
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* ── TYPOGRAPHY — weights ──────────────────────────────────────────────*/
+  --w-regular:  400;
+  --w-medium:   500;  /* labels, buttons */
+  --w-semibold: 600;  /* section labels, nav */
+  --w-bold:     700;  /* headings, emphasis */
+  --w-extra:    800;  /* hero / display */
+
+  /* ── TYPOGRAPHY — sizes ────────────────────────────────────────────────*/
+  --size-hero:  64px;
+  --size-xl3:   48px;
+  --size-xl2:   44px;
+  --size-xl:    32px;
+  --size-h-lg:  24px;
+  --size-h-md:  20px;
+  --size-lg:    18px;
+  --size-md:    16px;
+  --size-base:  14px;  /* DEFAULT body copy */
+  --size-sm:    12px;
+  --size-xs:    10px;
+
+  --text-hero: var(--w-extra) 64px/1.05 var(--font-display);
+  --text-h1:   var(--w-bold) 48px/1.1 var(--font-display);
+  --text-h2:   var(--w-bold) 32px/1.2 var(--font-display);
+  --text-h3:   var(--w-bold) 24px/1.3 var(--font-display);
+  --text-title:var(--w-bold) 20px/1.3 var(--font-display);
+  --text-body: var(--w-regular) 14px/1.5 var(--font-body);
+  --text-label:var(--w-medium) 14px/1.4 var(--font-body);
+  --text-cap:  var(--w-regular) 12px/1.4 var(--font-body);
+
+  /* ── RADII — squared language. Only chips/badges/avatars/toggles round. */
+  --radius-xs:   0;
+  --radius-sm:   0;
+  --radius-md:   0;
+  --radius-lg:   0;
+  --radius-xl:   0;
+  --radius-full: 9999px;
+
+  /* ── SPACING (4px base grid) ───────────────────────────────────────────*/
+  --space-4: 4px;   --space-8: 8px;   --space-10: 10px; --space-12: 12px;
+  --space-14: 14px; --space-16: 16px; --space-18: 18px; --space-20: 20px;
+  --space-24: 24px; --space-28: 28px; --space-32: 32px; --space-38: 38px;
+  --space-44: 44px; --space-48: 48px; --space-54: 54px;
+  --container-pad: 20px;
+  --max-content:   343px;
+
+  /* ── ELEVATION / SHADOWS — layered, low-opacity, near-black. ──────────*/
+  --shadow-xs:    0px 2px 4px 0px rgba(16,16,19,0.16);
+  --shadow-sm:    0px 2px 4px 0px rgba(16,16,19,0.04), 0px 16px 32px -4px rgba(16,16,19,0.10);
+  --shadow-md:    0px 2px 4px 0px rgba(16,16,19,0.04), 0px 24px 48px -8px rgba(16,16,19,0.12);
+  --shadow-lg:    0px 2px 4px 0px rgba(16,16,19,0.04), 0px 40px 80px -16px rgba(16,16,19,0.16);
+  --shadow-input: 0px 1px 2px rgba(0,0,0,0.05);
+  --shadow-focus: 0 0 0 3px rgba(53,46,255,0.4);
+  --shadow-brand: 0 8px 32px rgba(53,46,255,0.35);
+
+  --blur-sm: blur(8px);
+  --blur-md: blur(16px);
+
+  /* The signature: blue → royal-blue, 135deg. Balance card & hero only. */
+  --gradient-brand: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+/* DARK THEME — #171717 base, magenta (#ff00ff) accent. Primary action is an
+   OUTLINE button on dark; filled magenta only for chips/indicators. */
+[data-theme="dark"] {
+  --primary:        #ff00ff;
+  --secondary:      #ff00ff;
+  --tertiary-2:     #ff00ff;
+  --fg:             #ffffff;
+  --fg-muted:       #7f7f7f;
+  --fg-placeholder: #6a6a6a;
+  --fg-disabled:    #484848;
+  --bg:             #171717;
+  --bg-secondary:   #242424;
+  --bg-tertiary:    #f6fff1;
+  --surface:        #1f1f1f;
+  --ink:            #000000;
+  --surface-soft:   #242424;
+  --border:         #484848;
+  --border-strong:  #ffffff;
+  --border-input:   #484848;
+  --mono-100: #242424; --mono-200: #484848; --mono-300: #6a6a6a;
+  --mono-400: #828282; --mono-500: #9a9a9a;
+  --mono-600: #999999; --mono-700: #b2b2b2; --mono-800: #cccccc; --mono-900: #e5e5e5;
+  --primary-soft:   #ff00ff26;
+  --focus-ring:     rgba(255,0,255,0.4);
+  --shadow-focus:   0 0 0 3px rgba(255,0,255,0.4);
+}
+
+[data-theme="dark"] .mav-btn-primary {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+}
+
+.mav-body {
+  font: var(--text-body);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+.mav-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
